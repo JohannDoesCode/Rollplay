@@ -44,13 +44,14 @@ public class Weapon {
     }
 
     public void createEnchantments(){
-        enchantments = new String[6];
-        enchantments[0] = "fire";
+        enchantments = new String[7];
+        enchantments[0] = "none";
         enchantments[1] = "ice";
         enchantments[2] = "lightning";
         enchantments[3] = "healing";
         enchantments[4] = "damage";
         enchantments[5] = "destruction";
+        enchantments[6] = "fire";
 
     }
 

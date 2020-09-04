@@ -1,14 +1,18 @@
 public class Hero extends Akteur {
 
+
+    Weapon weaponExample;
     Weapon[] weapons;
     int weaponWeight;
 
     public Hero(){
         super();
+        weaponExample = new Weapon("",1,"");
         weapons = new Weapon[3];
         weaponWeight = (int) (Math.random()*2)+1;
         for(int i = 0; i < weaponWeight; i++){
-            weapons[i] = new Weapon();
+            int matterType = (int) (Math.random()*6);
+            weapons[i] = new Weapon(weaponExample.matters[matterType],matterType ,"");
         }
     }
 

@@ -1,7 +1,7 @@
 public class Weapon {
 
-    String[] matters, enchantements;
-    String matter, enchantement;
+    String[] matters, enchantments;
+    String matter, enchantment;
     int strengthBuff;
 
 
@@ -10,12 +10,12 @@ public class Weapon {
         strengthBuff = 1;
     }
 
-    public Weapon(String matter,int strengthBuff, String enchantement){
+    public Weapon(String matter,int strengthBuff, String enchantment){
         this.matter = matter;
         this.strengthBuff = strengthBuff;
-        this.enchantement = enchantement;
+        this.enchantment = enchantment;
         createMatter();
-        createEnchantements();
+        createEnchantments();
     }
 
     public void createMatter(){
@@ -43,18 +43,14 @@ public class Weapon {
 
     }
 
-    public void createEnchantements(){
-        enchantements = new String[20];
-        enchantements[0] = "copper";
-        enchantements[1] = "iron";
-        enchantements[2] = "steel";
-        enchantements[3] = "moonstone";
-        enchantements[4] = "gold";
-        enchantements[5] = "pyerite";
-        enchantements[6] = "silver";
-        enchantements[7] = "orcish";
-        enchantements[8] = "dwarven";
-        enchantements[9] = "elven";
+    public void createEnchantments(){
+        enchantments = new String[6];
+        enchantments[0] = "fire";
+        enchantments[1] = "ice";
+        enchantments[2] = "lightning";
+        enchantments[3] = "healing";
+        enchantments[4] = "damage";
+        enchantments[5] = "destruction";
 
     }
 

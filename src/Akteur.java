@@ -1,22 +1,22 @@
 public abstract class Akteur {
 
-    int damage, hp;
+    double damage, hp;
 
     Akteur() {
         this.damage = 1;
         this.hp = 5;
     }
 
-    Akteur(int damage, int hp) {
+    Akteur(double damage, double hp) {
         this.damage = damage;
         this.hp = hp;
     }
 
-    public int getDamage() {
+    public double getDamage() {
         return damage;
     }
 
-    public int getHp() {
+    public double getHp() {
         return hp;
     }
 
@@ -32,6 +32,6 @@ public abstract class Akteur {
         hp --;
     }
 
-    public abstract int getTrueDamage();
+    public abstract double getTrueDamage();
 
 }

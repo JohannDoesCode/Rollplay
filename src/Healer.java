@@ -39,13 +39,12 @@ public class Healer {
 
     public void heal(){
     
-      for (int i = 0; guildMembers > i ; i++) {
-        waitHero[i].setHp(5);
+      if ( guildMembers > 0 ) {
+        waitHero[0].setHp(5);
           for (int x = 0; 3 > x; x++ ) {
             waitHero[x] = waitHero[x+1];
           } 
-          System.out.println("Hero healed!");  
-          i = 0;
+          System.out.println("Hero healed!");
       } 
 
     }

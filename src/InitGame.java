@@ -5,7 +5,7 @@ public class InitGame{
     public InitGame(){
      Hero hero = new Hero();
      Monster monster = new Monster();
-     healer = new Healer();;
+     healer = new Healer();
      fight(hero, monster);
     }
 

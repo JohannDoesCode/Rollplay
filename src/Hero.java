@@ -11,8 +11,7 @@ public class Hero extends Akteur {
         weapons = new Weapon[3];
         weaponWeight = (int) (Math.random()*2)+1;
         for(int i = 0; i < weaponWeight; i++){
-            int matterType = (int) (Math.random()*6);
-            weapons[i] = new Weapon(weaponExample.matters[matterType],"");
+            weapons[i] = new Weapon(weaponExample.matters[(int) (Math.random()*6)],"");
         }
     }
 
@@ -22,13 +21,11 @@ public class Hero extends Akteur {
 
     public void lootWeapon(Weapon weapon){
         if(weaponWeight < 3 && weaponWeight != 0){
-            int matterType = (int) (Math.random()*3)+16;
-            weapons[weaponWeight -1] = new Weapon(weaponExample.matters[matterType],"");
+            weapons[weaponWeight -1] = new Weapon(weaponExample.matters[(int) (Math.random()*3)+16],"");
             weaponWeight ++;
         }
         if(weaponWeight == 0){
-            int matterType = (int) (Math.random()*19);
-            weapons[weaponWeight] = new Weapon(weaponExample.matters[matterType],"");
+            weapons[weaponWeight] = new Weapon(weaponExample.matters[(int) (Math.random()*19)],"");
             weaponWeight ++;
         }
     }

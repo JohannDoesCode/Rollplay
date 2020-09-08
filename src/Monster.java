@@ -1,15 +1,15 @@
 public class Monster extends Akteur {
 
-    private double poisonDamage;
+    private int poisonDamage;
     private String raceClass, raceElement;
     String[] raceClassList, raceElements;
 
     public Monster() {
-        super(2, 2, false);
+        super(2, 100, false, 0, 0, 0);
         raceClassList = new String[4];
         raceElements = new String[7];
-        createRaceClass((int) Math.random()*3);
-        createRaceElement((int) Math.random()*5);
+        createRaceClass((int) (Math.random()*4));
+        createRaceElement((int) (Math.random()*6));
     }
 
     public void createRaceClass(int whichClass){
@@ -18,6 +18,10 @@ public class Monster extends Akteur {
         raceClassList[2] = "skeleton";
         raceClassList[3] = "oni";
         raceClass = raceClassList[whichClass];
+    }
+
+    public String getRaceClass(){
+        return raceClass;
     }
 
     public void createRaceElement(int whichElement){
@@ -31,9 +35,9 @@ public class Monster extends Akteur {
         raceElement = raceElements[whichElement];
     }
 
-    public double getTrueDamage() {
-        poisonDamage = (int) (Math.random()*2) + 1;
-        double trueDamage = damage + poisonDamage;
+    public int getTrueDamage() {
+        poisonDamage = (int) (Math.random()*3) + 1;
+        int trueDamage = damage + poisonDamage;
         return trueDamage;
     }
 

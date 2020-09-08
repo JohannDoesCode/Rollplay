@@ -4,12 +4,14 @@ public class Hero extends Akteur {
     Weapon weaponExample;
     Weapon[] weapons;
     int weaponWeight;
+    boolean bot;
 
     public Hero(){
-        super();
+        super(0,0,0);
+        bot = true;
         weaponExample = new Weapon("","");
-        weapons = new Weapon[3];
-        weaponWeight = (int) (Math.random()*2)+1;
+        weapons = new Weapon[10];
+        weaponWeight = (int) (Math.random()*3)+1;
         for(int i = 0; i < weaponWeight; i++){
             weapons[i] = new Weapon(weaponExample.matters[(int) (Math.random()*6)],"");
         }
@@ -19,26 +21,47 @@ public class Hero extends Akteur {
         return weaponWeight;
     }
 
-    public void lootWeapon(Weapon weapon){
-        if(weaponWeight < 3 && weaponWeight != 0){
-            weapons[weaponWeight -1] = new Weapon(weaponExample.matters[(int) (Math.random()*3)+16],"");
+    public void lootWeapon(){
+        if(weaponWeight < 10 ){
             weaponWeight ++;
-        }
-        if(weaponWeight == 0){
-            weapons[weaponWeight] = new Weapon(weaponExample.matters[(int) (Math.random()*19)],"");
-            weaponWeight ++;
+            weapons[weaponWeight - 1] = new Weapon(weaponExample.matters[(int) (Math.random()*16)+4],"");
         }
     }
 
-    public double getTrueDamage(){
-        double trueDamage = damage;
+    public Weapon getWeaponId(int id){
+        return weapons[id];
+    }
 
-        for(int i = 0; i < weaponWeight; i++){
-            trueDamage += weapons[i].getStrengthBuff();
+
+    public int getTrueDamage(){
+        int trueDamage = damage;
+
+        if(bot) {
+            if(weaponWeight <= 1) {
+                for (int i = 0; i < weaponWeight; i++) {
+                    trueDamage += (int) (Math.random() * (weapons[i].getStrengthBuff() + 1));
+                }
+            }
+            else{
+                for (int i = 0; i < weaponWeight-1; i++) {
+                    trueDamage += (int) (Math.random() * (weapons[i].getStrengthBuff() + 1));
+                }
+            }
+        }
+
+        if(!bot){
+            for (int i = 0; i < weaponWeight; i++) {
+                if(weapons[i].equiped()) {
+                    trueDamage += weapons[i].getStrengthBuff();
+                }
+            }
         }
 
         return trueDamage;
     }
 
+    public String getRaceClass(){
+        return "hey";
+    }
 
 }

@@ -2,18 +2,21 @@ public class Weapon {
 
     String[] matters, enchantments;
     String matter, enchantment;
-    double strengthBuff;
+    int strengthBuff;
+    boolean whichIHave;
 
 
     public Weapon(){
         matter = "iron";
         strengthBuff = 1;
+        whichIHave = false;
     }
 
     public Weapon(String matter, String enchantment){
         this.matter = matter;
         this.enchantment = enchantment;
         createGame();
+        whichIHave = false;
     }
 
     public void createGame(){
@@ -51,66 +54,66 @@ public class Weapon {
         switch (matter) {
 
             case "copper":
-                strengthBuff = 0.5;
-                break;
-
-            case "iron":
                 strengthBuff = 1;
                 break;
 
-            case "steel":
-                strengthBuff = 1.5;
-                break;
-            case "moonstone":
+            case "iron":
                 strengthBuff = 2;
                 break;
-            case "gold":
-                strengthBuff = 2.5;
-                break;
-            case "pyerite":
+
+            case "steel":
                 strengthBuff = 3;
                 break;
-            case "silver":
-                strengthBuff = 3.5;
-                break;
-            case "orcish":
+            case "moonstone":
                 strengthBuff = 4;
                 break;
-            case "dwarven":
-                strengthBuff = 4.5;
-                break;
-            case "elven":
+            case "gold":
                 strengthBuff = 5;
                 break;
-            case "mythril":
-                strengthBuff = 5.5;
-                break;
-            case "ebony":
+            case "pyerite":
                 strengthBuff = 6;
                 break;
-            case "eridium":
-                strengthBuff = 6.5;
-                break;
-            case "diamond":
+            case "silver":
                 strengthBuff = 7;
                 break;
-            case "corbonite":
-                strengthBuff = 7.5;
-                break;
-            case "obsidian":
+            case "orcish":
                 strengthBuff = 8;
                 break;
-            case "viridium":
-                strengthBuff = 8.5;
-                break;
-            case "dragonbone":
+            case "dwarven":
                 strengthBuff = 9;
                 break;
+            case "elven":
+                strengthBuff = 10;
+                break;
+            case "mythril":
+                strengthBuff = 11;
+                break;
+            case "ebony":
+                strengthBuff = 12;
+                break;
+            case "eridium":
+                strengthBuff = 13;
+                break;
+            case "diamond":
+                strengthBuff = 14;
+                break;
+            case "corbonite":
+                strengthBuff = 15;
+                break;
+            case "obsidian":
+                strengthBuff = 16;
+                break;
+            case "viridium":
+                strengthBuff = 17;
+                break;
+            case "dragonbone":
+                strengthBuff = 18;
+                break;
             case "soulsteel":
-                strengthBuff = 9.5;
+                strengthBuff = 19;
                 break;
             case "stygium":
-                strengthBuff = 10;
+                strengthBuff = 20;
                 break;
         }
     }
@@ -127,6 +130,15 @@ public class Weapon {
 
     }
 
+    public void equip(boolean whichIHave){
+        this.whichIHave = whichIHave;
+
+    }
+
+    public boolean equiped(){
+        return whichIHave;
+    }
+
     public String getMatter(){
         return matter;
     }
@@ -135,7 +147,7 @@ public class Weapon {
         return enchantment;
     }
 
-    public double getStrengthBuff(){
+    public int getStrengthBuff(){
         return strengthBuff;
     }
 

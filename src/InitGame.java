@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class InitGame extends JPanel implements Runnable, KeyListener {
+public class InitGame extends JPanel implements Runnable, KeyListener { // monster verstärken
 
 
   JFrame myFrame;
@@ -129,6 +129,9 @@ public class InitGame extends JPanel implements Runnable, KeyListener {
         break;
       case "kill":
         mainHero.setHp(mainHero.getHp()+30);
+        if(mainHero.getHp() > 120){
+          mainHero.setHp(120);
+        }
         g.setColor(Color.BLACK);
         g.drawString( (mainHero.getHp()) +" Hp ", width - 50, 20);
         printAction = "";

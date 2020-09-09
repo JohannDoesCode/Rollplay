@@ -9,9 +9,8 @@ public class InitGame extends JPanel implements Runnable, KeyListener {
   JFrame myFrame;
   Akteur[] akteure;
   Weapon[] weapons;
-  Healer healer;
   Hero mainHero;
-  int width, height, itemFieldAktive, itemFieldAktiveAction;
+  int width, height, itemFieldAktive, itemFieldAktiveAction, killCounter;
   boolean printActionDead;
   String printAction;
   
@@ -21,6 +20,7 @@ public class InitGame extends JPanel implements Runnable, KeyListener {
     weapons = new Weapon[10];
     itemFieldAktive = 1;
     itemFieldAktiveAction = 1;
+    killCounter = -1;
     printAction = "";
     printActionDead = true;
     this.setPreferredSize(new Dimension(width, height));
@@ -38,7 +38,6 @@ public class InitGame extends JPanel implements Runnable, KeyListener {
     th.start();
 
     akteure = new Akteur[10];
-    healer = new Healer();
     respawnMob();
 
   }
@@ -98,7 +97,7 @@ public class InitGame extends JPanel implements Runnable, KeyListener {
   }
 
   public void respawnMob(){
-
+    killCounter ++;
     for (int i = 0;i < 10 ;i++ ) {
       int rand = (int) (Math.random() * 2) + 1;
 
@@ -113,7 +112,7 @@ public class InitGame extends JPanel implements Runnable, KeyListener {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
 
-    switch (printAction) { // change koordinaten
+    switch (printAction) {
       case "hpLost":
         g.setColor(Color.RED);
         g.drawString( (mainHero.getHp()) +" Hp ", width - 50, 20);
@@ -129,9 +128,10 @@ public class InitGame extends JPanel implements Runnable, KeyListener {
         printActionDead = false;
         break;
       case "kill":
-        mainHero.setHp(80);
+        mainHero.setHp(mainHero.getHp()+30);
         g.setColor(Color.BLACK);
         g.drawString( (mainHero.getHp()) +" Hp ", width - 50, 20);
+        printAction = "";
         break;
     }
       if(!printActionDead){
@@ -491,7 +491,7 @@ public class InitGame extends JPanel implements Runnable, KeyListener {
             //healing();
             break;
           case 4:
-            // spare();
+            //spare();
             break;
         }
       }
